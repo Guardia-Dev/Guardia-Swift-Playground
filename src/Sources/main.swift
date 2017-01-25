@@ -3,23 +3,22 @@ import PerfectHTTP
 import PerfectHTTPServer
 import PerfectMustache
 
-// 创建HTTP服务器
 let server = HTTPServer()
 
-func Test() {
-    
-}
+server.documentRoot = "./Template"
 
-// 注册您自己的路由和请求／响应句柄
 var routes = Routes()
+
 routes.add(method: .get, uri: "/", handler: {
     request, response in
-    let webRoot = request.documentRoot
-    mustacheRequest(request: request, response: response, handler: Test() as! MustachePageHandler, templatePath: webRoot + "/Template/index.html")
-})
-
-routes.add(method: .get, uri: "/path/one", handler: { request, response in
-    response.setBody(string: "路由句柄已经收到")
+    
+    response.setHeader(.contentType, value: "text/html")
+    mustacheRequest(
+        request: request,
+        response: response,
+        handler: ListHandler(),
+        templatePath: request.documentRoot + "/index.mustache"
+    )
     response.completed()
 })
 
@@ -27,7 +26,7 @@ routes.add(method: .get, uri: "/path/one", handler: { request, response in
 server.addRoutes(routes)
 
 // 监听8181端口
-server.serverPort = 8181
+server.serverPort = 8282
 
 do {
     // 启动HTTP服务器

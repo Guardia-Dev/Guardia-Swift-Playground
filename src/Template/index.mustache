@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    {{> head}}
+
+
+    <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="#">Guardia</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Hello, world!</h1>
+    </div>
+    
+    <div id="content">
+        {{#posts}}
+        <div style="padding-bottom: 20px; border-bottom: 1px solid black">
+            <h4>{{title}}</h4>
+            <div>{{synopsis}}</div>
+        </div>
+        {{/posts}}
+    </div>
+    
+    {{> jsfoot}}
+  </body>
+</html>
