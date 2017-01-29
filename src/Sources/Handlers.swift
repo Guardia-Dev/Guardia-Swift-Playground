@@ -17,7 +17,7 @@ struct ListHandler: MustachePageHandler {
         var values = MustacheEvaluationContext.MapType()
         var array = [Any]()
         
-        for _ in 0 ..< 1 {
+        for _ in 0 ..< 4 {
             var thisPost = [String: String]()
             thisPost["title"] = "title"
             thisPost["synopsis"] = "synopsis"
