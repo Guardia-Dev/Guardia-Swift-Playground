@@ -1,7 +1,7 @@
 #extend("base")
 
 #export("head") {
-	<title>My App</title>
+<title>Guardia</title>
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700,300" rel="stylesheet">
 	<link rel="stylesheet" href="/styles/app.css">
