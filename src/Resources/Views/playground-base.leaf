@@ -1,8 +1,15 @@
 <!DOCTYPE html>
+<html>
 <head>
     #import("head")
-</head>
-<body>
-    #import("header")
+    <title>Playground</title>
+    <link rel="stylesheet" href="/styles/main.css">
+
     
+</head>
+<body class="post-template single">
+    #import("body")
+    <script src="/ace/ace.js"></script>
+    #import("playground-ace-config")
 </body>
+</html>
