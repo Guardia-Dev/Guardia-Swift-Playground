@@ -4,12 +4,13 @@
     #import("head")
     <title>Playground</title>
     <link rel="stylesheet" href="/styles/main.css">
-
+    
     
 </head>
 <body class="post-template single">
     #import("body")
     <script src="/ace/ace.js"></script>
+    <script src="/ace/mode-swift.js" type="text/javascript" charset="utf-8"></script>
     #import("playground-ace-config")
 </body>
 </html>

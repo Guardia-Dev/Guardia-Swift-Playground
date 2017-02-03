@@ -35,7 +35,7 @@
         </div>
     </header>
 
-    <div style="margin-top:20px;">
+    <div style="margin-top:20px; margin-bottom:70px;">
         <div class="container" style="padding-top:20px; background:white; width:65em; vertical-align:middle;">
             <div class="row" style="text-align:center;">
                 <h2>&lt; / &gt; Swift Playground</h2>
@@ -53,14 +53,56 @@
                 </div>
             </div>
         </div>
-        
-        
     </div>
+
+    <footer class="footer">
+        <div class="footer">
+            <!--
+            <ul class="icons">
+                <li>
+                    <a href="http://github.com/desgard" class="icon-github" target="_blank">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/desgard.duan" class="icon-facebook" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/Desgard_Duan" class="icon-twitter" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://stackoverflow.com/users/6119149/desgard-duan" class="icon-github" target="_blank">
+                        <i class="fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://weibo.com/desgard" class="icon-instagram" target="_blank">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                </li>
+            </ul>
+             -->
+            <p>
+                <q>Have a beginner mind.</q>
+                <small>– Gua</small>
+            </p>
+            <small class="clearfix">
+                Made with <a href="http://jekyllrb.com" target="_blank">Jekyll</a> • <a href="https://github.com/desgard" target="_blank">Open source</a>
+            </small>
+        </div>
+    </footer>
 
 }
 
 #export("playground-ace-config") {
     <script>
         var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        editor.setKeyboardHandler("ace/keyboard/vim");
+        editor.getSession().setMode("ace/mode/swift");
     </script>
 }
