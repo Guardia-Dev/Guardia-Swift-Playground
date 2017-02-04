@@ -29,7 +29,11 @@
             <h1><a href="http://www.desgard.com/"><strong>desgard</strong>.com</a></h1>
             <nav class="navbar">
                 <ul>
-                    <li><button class="button">▶ Run</button></li>
+                    <li>
+                        <button class="button" onclick="run()">
+                            ▶ Run
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -42,7 +46,7 @@
             </div>
             <div class="row" style="min-height: 420px";>
                 <div style="padding: 0; width:50%; float:left;">
-                    <div id="editor"></div>
+                    <div id="editor">#embed("playground-code")</div>
                 </div>
                 <div style="padding: 0; width:50%; float:left;">
                     <div id="cmd">
@@ -91,7 +95,7 @@
                 <small>– Gua</small>
             </p>
             <small class="clearfix">
-                Made with <a href="http://jekyllrb.com" target="_blank">Jekyll</a> • <a href="https://github.com/desgard" target="_blank">Open source</a>
+                Made with <a href="http://vapor.codes/" target="_blank">Vapor and Swift</a> • <a href="https://github.com/desgard" target="_blank">Open source</a>
             </small>
         </div>
     </footer>

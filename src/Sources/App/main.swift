@@ -1,4 +1,5 @@
 import Vapor
+import Foundation
 
 let drop = Droplet()
 
@@ -10,10 +11,25 @@ drop.get{ req in
 
 drop.get("index") { request in
     return try drop.view.make("index", [
-        "message": "test"
+        
     ])
+}
+
+drop.post("post") { request in
+    guard let codeText = request.data["codeText"]?.string else {
+        throw Abort.badRequest
+    }
+    guard let timestamp = request.data["timestamp"]?.string else {
+        throw Abort.badRequest
+    }
+    
+    var homeDir = NSHomeDirectory()    
+    
+    return try JSON(node: ["result": "success"])
 }
 
 drop.resource("posts", PostController())
 
 drop.run()
+
+
