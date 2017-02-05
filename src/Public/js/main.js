@@ -11,7 +11,7 @@ function run() {
         timestamp: timestamp,
     },
     function(data) {
-        console.log(data);
-        console.log(data['data']);
+        console.log(data['data']);       
+        $("#cmd-show")[0].innerHTML = data['data'];
     });
 }

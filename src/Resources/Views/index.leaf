@@ -49,10 +49,9 @@
                     <div id="editor">#embed("playground-code")</div>
                 </div>
                 <div style="padding: 0; width:50%; float:left;">
+                    
                     <div id="cmd">
-                        Swift version 3.0.2
-                        <br/><br/>
-                        Hello Guardia!
+                        <pre id="cmd-show">#embed("playground-cmd")</pre>
                     </div>
                 </div>
             </div>
@@ -91,7 +90,7 @@
             </ul>
              -->
             <p>
-                <q>Have a beginner mind.</q>
+                Have a beginner mind.
                 <small>– Gua</small>
             </p>
             <small class="clearfix">
