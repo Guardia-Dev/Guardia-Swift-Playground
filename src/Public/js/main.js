@@ -10,7 +10,8 @@ function run() {
         codeText: codeText,
         timestamp: timestamp,
     },
-    function(data, status) {
-        alert("ok");
+    function(data) {
+        console.log(data);
+        console.log(data['data']);
     });
 }

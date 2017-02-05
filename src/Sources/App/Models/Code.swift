@@ -41,6 +41,24 @@ final class CodeFile: Model {
     }
     
     // Operation Function
+    private func cli(cmd: String) -> String {
+        let process: Process = Process()
+        process.launchPath = "/bin/bash"
+        process.arguments = ["-c", cmd]
+        
+        let pipe: Pipe = Pipe()
+        process.standardOutput = pipe
+        process.standardError = pipe
+        
+        let fileHandle: FileHandle = pipe.fileHandleForReading
+        process.launch()
+        
+        let data: Data = fileHandle.readDataToEndOfFile()
+        let log: String = String(data: data, encoding: String.Encoding.utf8)!
+        
+        return log
+    }
+    
     public func creatFile() {
         let url: NSURL = NSURL(fileURLWithPath: self.path)
         let data = NSMutableData()
@@ -48,8 +66,10 @@ final class CodeFile: Model {
         data.write(toFile: url.path!, atomically: true)
     }
     
-    public func runFile() {
-        
+    public func runFile() -> String {
+        let retLog: String = cli(cmd: "cd /Users/Shared/; swiftc -o code.out code.swift; ./code.out; rm -rf code.out;")
+        print(retLog)
+        return retLog
     }
 }
 

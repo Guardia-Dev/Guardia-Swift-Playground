@@ -25,8 +25,12 @@ drop.post("post") { request in
     
     var codefile: CodeFile = CodeFile(code: codeText, timestamp: timestamp)
     codefile.creatFile()
+    let retLog: String = codefile.runFile()
     
-    return try JSON(node: ["result": "success"])
+    return try JSON(node: [
+        "result": "success",
+        "data": retLog,
+        ])
 }
 
 drop.resource("posts", PostController())
