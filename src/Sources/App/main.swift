@@ -23,7 +23,8 @@ drop.post("post") { request in
         throw Abort.badRequest
     }
     
-    var homeDir = NSHomeDirectory()    
+    var codefile: CodeFile = CodeFile(code: codeText, timestamp: timestamp)
+    codefile.creatFile()
     
     return try JSON(node: ["result": "success"])
 }
@@ -31,5 +32,4 @@ drop.post("post") { request in
 drop.resource("posts", PostController())
 
 drop.run()
-
 
