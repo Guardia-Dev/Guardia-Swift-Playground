@@ -1,10 +1,8 @@
-![](http://ofsabm6nw.bkt.clouddn.com/playground.png)
+# Guardia-Swift-Server
 
 ![](https://img.shields.io/badge/Swift-3.0-green.svg)
 ![](https://img.shields.io/badge/Vapor-1.4-orange.svg)
 ![](https://img.shields.io/badge/license-MIT-green.svg)
-
-# Guardia-Swift-Server
 
 - [x] Vapor Web Server
 - [x] Guardia v4.0 UI Style
@@ -15,6 +13,10 @@
 ## Description
 
 The **Swift Playground** of Guardia v4.0 written by `Swift 3.0` and `Vapor` web server toolkit, which will be moved from gitpages [repo](https://github.com/Desgard/desgard.github.com) to my private server. 
+
+## Screenshot
+
+![](http://ofsabm6nw.bkt.clouddn.com/playground.png)
 
 ## MIT License
 
