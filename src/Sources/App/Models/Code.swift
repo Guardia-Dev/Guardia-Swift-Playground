@@ -42,7 +42,7 @@ final class CodeFile: Model {
     
     // Operation Function
     private func cli(cmd: String) -> String {
-        let process: Process = Process()
+        let process: Task = Task()
         process.launchPath = "/bin/bash"
         process.arguments = ["-c", cmd]
         
