@@ -25,11 +25,23 @@ drop.post("post") { request in
     
     var codefile: CodeFile = CodeFile(code: codeText, timestamp: timestamp)
     codefile.creatFile()
+    print(codefile.pwd())
     let retLog: String = codefile.runFile()
     
     return try JSON(node: [
         "result": "success",
         "data": retLog,
+        ])
+}
+
+drop.post("release-log") { request in
+    guard let rellog = request.data["log"]?.string else {
+        throw Abort.badRequest
+    }
+    
+    return try JSON(node: [
+        "result": "success",
+        "data": rellog,
         ])
 }
 
