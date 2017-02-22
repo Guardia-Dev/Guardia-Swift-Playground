@@ -67,7 +67,7 @@ final class CodeFile: Model {
     }
     
     public func runFile() -> String {
-        let retLog: String = cli(cmd: "cd /Users/Shared/Guardia-pg/; bash run.sh;")
+        let retLog: String = cli(cmd: "bash run-swift.sh;")
         print(retLog)
         return retLog
     }
