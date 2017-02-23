@@ -33,6 +33,17 @@ drop.post("post") { request in
         ])
 }
 
+drop.post("release-log") { request in
+    guard let rellog = request.data["log"]?.string else {
+        throw Abort.badRequest
+    }
+    
+    return try JSON(node: [
+        "result": "success",
+        "data": rellog,
+        ])
+}
+
 drop.resource("posts", PostController())
 
 drop.run()

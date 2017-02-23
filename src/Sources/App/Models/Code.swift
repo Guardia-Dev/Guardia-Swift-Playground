@@ -16,7 +16,7 @@ final class CodeFile: Model {
     var timestamp: String
     
     var path: String = {
-        var path: String = "/Users/Shared/code.swift"
+        var path: String = "/Users/Shared/Guardia-pg/code.swift"
         return path
     }()
     
@@ -67,7 +67,7 @@ final class CodeFile: Model {
     }
     
     public func runFile() -> String {
-        let retLog: String = cli(cmd: "cd /Users/Shared/; swiftc -o code.out code.swift; ./code.out; rm -rf code.out;")
+        let retLog: String = cli(cmd: "bash run-swift.sh;")
         print(retLog)
         return retLog
     }
