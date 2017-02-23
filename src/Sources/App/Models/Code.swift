@@ -10,13 +10,21 @@ import Foundation
 import Vapor
 import Fluent
 
+let DEFAULT_RUN_PATH: String = "/Users/Shared/Guardia-pg/code.swift"
+let DEFALUT_LOG_PATH: String = "/Users/Shared/Guardia-pg/code.log"
+
 final class CodeFile: Model {
     var id: Node?
     var codeText: String
     var timestamp: String
     
-    var path: String = {
-        var path: String = "/Users/Shared/Guardia-pg/code.swift"
+    let path: String = {
+        var path: String = DEFAULT_RUN_PATH
+        return path
+    }()
+    
+    let logPath: String = {
+        var path: String = DEFALUT_LOG_PATH
         return path
     }()
     
@@ -59,6 +67,10 @@ final class CodeFile: Model {
         return log
     }
     
+    private func isFileExist(atPath filePath: String) -> Bool {
+        return FileManager.default.fileExists(atPath: filePath)
+    }
+    
     public func creatFile() {
         let url: NSURL = NSURL(fileURLWithPath: self.path)
         let data = NSMutableData()
@@ -66,9 +78,19 @@ final class CodeFile: Model {
         data.write(toFile: url.path!, atomically: true)
     }
     
+    public func readLogFile() -> String {
+        let file: URL = URL(fileURLWithPath: self.logPath)
+        let readHandler = try! FileHandle(forReadingFrom: file)
+        let data: Data = readHandler.readDataToEndOfFile()
+        let log: String = String(data: data, encoding: String.Encoding.utf8)!
+        return log
+    }
+    
+    
     public func runFile() -> String {
-        let retLog: String = cli(cmd: "bash run-swift.sh;")
-        print(retLog)
+        let serverLog: String = cli(cmd: "bash run-swift.sh;")
+        let retLog: String = readLogFile()
+        print(serverLog)
         return retLog
     }
 }
