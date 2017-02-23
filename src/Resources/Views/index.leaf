@@ -19,6 +19,7 @@
             color: #()aaa;
             font-size: 18px;
             line-height: 14px;
+            overflow: auto;
         }
     </style>
 }
