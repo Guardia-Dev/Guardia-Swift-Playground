@@ -25,7 +25,6 @@ drop.post("post") { request in
     
     var codefile: CodeFile = CodeFile(code: codeText, timestamp: timestamp)
     codefile.creatFile()
-    print(codefile.pwd())
     let retLog: String = codefile.runFile()
     
     return try JSON(node: [
