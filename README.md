@@ -16,7 +16,32 @@ The **Swift Playground** of Guardia v4.0 written by `Swift 3.0` and `Vapor` web 
 
 ## Screenshot
 
-![](http://ofsabm6nw.bkt.clouddn.com/playground.png)
+![](http://ognvpizmr.bkt.clouddn.com/pg.png)
+
+## Usage In macOS
+
+First, you need to install the `Vapor` and `Vapor toolbox`. I had pack them two shell files.
+
+```bash
+git clone https://github.com/Desgard/Guardia-Swift-Server.git
+cd Guardia-Swift-Server
+bash toolbox-install.sh
+bash vapor-install.sh
+```
+
+And then, to configure the runtime environment.
+
+```bash
+mkdir /Users/Shared/Guardia-pg/
+chmod -R 777 /Users/Shared/Guardia-pg
+```
+
+Run web serve by Vapor toolbox.
+
+```bash
+cd src
+bash runserve.sh
+```
 
 ## MIT License
 
