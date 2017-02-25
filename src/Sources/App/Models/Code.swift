@@ -12,6 +12,7 @@ import Fluent
 
 let DEFAULT_RUN_PATH: String = "/Users/Shared/Guardia-pg/code.swift"
 let DEFALUT_LOG_PATH: String = "/Users/Shared/Guardia-pg/code.log"
+let DEFALUT_ERROR_LOG_PATH: String = "/Users/Shared/Guardia-pg/error.log"
 
 final class CodeFile: Model {
     var id: Node?
@@ -25,6 +26,11 @@ final class CodeFile: Model {
     
     let logPath: String = {
         var path: String = DEFALUT_LOG_PATH
+        return path
+    }()
+    
+    let errorLogPath: String = {
+        var path: String = DEFALUT_ERROR_LOG_PATH
         return path
     }()
     
@@ -86,12 +92,23 @@ final class CodeFile: Model {
         return log
     }
     
+    public func readErrorFile() -> String {
+        let file: URL = URL(fileURLWithPath: self.errorLogPath)
+        let readHandler = try! FileHandle(forReadingFrom: file)
+        let data: Data = readHandler.readDataToEndOfFile()
+        let log: String = String(data: data, encoding: String.Encoding.utf8)!
+        return log
+    }
     
     public func runFile() -> String {
         let serverLog: String = cli(cmd: "bash run-swift.sh;")
         let retLog: String = readLogFile()
-        print(serverLog)
-        return retLog
+        let retError: String = readErrorFile()
+        if retError == "" {
+            return retLog
+        } else {
+            return retError
+        }
     }
 }
 
